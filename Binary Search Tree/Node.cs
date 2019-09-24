@@ -9,7 +9,7 @@ namespace Binary_Search_Tree
     class Node
     {
         //FIELDS************************************************************************
-       
+
         /// <summary>
         /// Current data this node is holding
         /// </summary>
@@ -18,7 +18,29 @@ namespace Binary_Search_Tree
 
         private Node lesserChild = null;
         private Node greaterChild = null;
-       
+
+        /// <summary>
+        /// space to store node to replace other node
+        /// </summary>
+        private Node nodeReplaceStorage = null;
+
+        /// <summary>
+        /// storage for greater node of replacement node
+        /// </summary>
+        private Node greaterNodeStroage = null;
+
+        //PROPETIES*********************************************************************
+
+        /// <summary>
+        /// Gets the variable of this node
+        /// </summary>
+        public int Var
+        {
+            get
+            {
+                return var;
+            }
+        }
 
 
         //CONSTRUTOR********************************************************************
@@ -43,6 +65,7 @@ namespace Binary_Search_Tree
                 if (lesserChild == null)//and lesserChild is empty...
                 {
                     lesserChild = new Node(newVar);//create new node at lesser child position with newVariable...
+
                     return;
                 }
                 else
@@ -62,6 +85,7 @@ namespace Binary_Search_Tree
                 else
                 {
                     greaterChild.InsertNode(newVar);
+
                     return;
                 }
 
@@ -80,18 +104,18 @@ namespace Binary_Search_Tree
         /// <param name="expectedVar">< /param>
         public void RemoveNode(int expectedVar)
         {
-            if (var == expectedVar)
+            nodeReplaceStorage = SearchForNode(expectedVar);
+
+            if (nodeReplaceStorage == null)//checks if expected var exists in the BST
             {
-                if (lesserChild == null)
-                {
-                    if (greaterChild == null)
-                    {
-                        
-                    }
-                }
+                Console.WriteLine("This node does not exist");
+                return;
             }
 
-            }
+
+
+
+        }
 
 
         /// <summary>
@@ -101,47 +125,128 @@ namespace Binary_Search_Tree
         /// <returns></returns>
         public bool SearchBST(int expectedVar)
         {
-
-            if (var == expectedVar)//Checks if the variable has been found
+            if (SearchForNode(expectedVar) == null)
             {
-                Console.WriteLine();
-                Console.Write(var);//debug
-                Console.Write("  The Variable has been found!");
+                Console.WriteLine("This variable does not exist in the tree.");
+                return false;
+            }
+            else
+            {
+                Console.WriteLine("This variable exists in the tree!");
                 return true;
             }
 
-            if (expectedVar < var)//will send the search further through the tree, unless there is nothing there in which case it will return false
+
+            //if (var == expectedVar)//Checks if the variable has been found
+            //{
+            //    Console.WriteLine();
+            //    Console.Write(var);//debug
+            //    Console.Write("  The Variable has been found!");
+            //    return true;
+            //}
+
+            //if (expectedVar < var)//will send the search further through the tree, unless there is nothing there in which case it will return false
+            //{
+            //    Console.WriteLine(var);//debug
+
+            //    if (lesserChild != null)
+            //    {
+            //        return lesserChild.SearchBST(expectedVar);
+            //    }
+            //    else
+            //    {
+            //        return false;
+            //    }
+            //}
+            //else if (expectedVar > var)
+            //{
+            //    Console.WriteLine(var);//debug
+
+            //    if (greaterChild != null)
+            //    {
+            //        return greaterChild.SearchBST(expectedVar);
+            //    }
+            //    else
+            //    {
+            //        return false;
+            //    }
+
+            //}
+
+            //Console.WriteLine(expectedVar + " was not found.");
+            //return false;
+        }
+
+        /// <summary>
+        /// Will Return the node of the inputed variable, expects that the value is in the program and will return null if it is not
+        /// </summary>
+        /// <param name="expectedVar"></param>
+        /// <returns></returns>
+        public Node SearchForNode(int targetNode)
+        {
+
+            if (targetNode > this.Var) //Determines Direction
             {
-                Console.WriteLine(var);//debug
+                if (greaterChild != null)
+                {
+                    if (greaterChild.Var == targetNode) //Will Return the child node if its variable matches the target
+                    {
+                        Console.WriteLine(greaterChild.Var);//debug
+
+
+                        return greaterChild;
+                    }
+                    else
+                    {
+                        Console.WriteLine(greaterChild.Var);//debug
+
+
+                        return greaterChild.SearchForNode(targetNode); //Will keep running this method till the node is found then will return it
+                    }
+                }
+            }
+            else if (targetNode < this.Var) //Repeats with lesser
+            {
 
                 if (lesserChild != null)
                 {
-                    return lesserChild.SearchBST(expectedVar);
-                }
-                else
-                {
-                    return false;
+                    if (lesserChild.Var == targetNode)
+                    {
+                        Console.WriteLine(lesserChild.Var);//debug
+
+
+                        return lesserChild;
+                    }
+                    else
+                    {
+                        Console.WriteLine(lesserChild.Var);//debug
+
+
+                        return lesserChild.SearchForNode(targetNode);
+                    }
                 }
             }
-            else if (expectedVar > var)
-            {
-                Console.WriteLine(var);//debug
+            return null;//If the node is in the tree this should not be reached
 
-                if (greaterChild != null)
-                {
-                    return greaterChild.SearchBST(expectedVar);
-                }
-                else
-                {
-                    return false;
-                }
-
-            }
-                
-            Console.WriteLine(expectedVar + " was not found.");
-            return false;
         }
 
+        /// <summary>
+        /// returns lesser child object
+        /// </summary>
+        /// <returns></returns>
+        public Node getLesserNode()
+        {
+            return lesserChild;
+        }
+
+        /// <summary>
+        /// returns lesser child object
+        /// </summary>
+        /// <returns></returns>
+        public Node getGreaterNode()
+        {
+            return greaterChild;
+        }
 
         /// <summary>
         ///Will Return true if the expectedVariable is in this node
@@ -158,8 +263,5 @@ namespace Binary_Search_Tree
 
             return false;
         }
-
-
-
     }
 }
