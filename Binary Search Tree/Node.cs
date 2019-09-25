@@ -119,6 +119,18 @@ namespace Binary_Search_Tree
 
 
         /// <summary>
+        /// This method finds and returns the last lesser node connected to the parent, will return null if parents lesser node is empty
+        /// </summary>
+        /// <param name="parent"></param>
+        /// <returns></returns>
+        public Node FindLastLesser(Node parent)
+        {
+            return null;
+        }
+
+        
+
+        /// <summary>
         /// Will Look through BST till variable is found if it is
         /// </summary>
         /// <param name="expectedVar"></param>
@@ -136,45 +148,6 @@ namespace Binary_Search_Tree
                 return true;
             }
 
-
-            //if (var == expectedVar)//Checks if the variable has been found
-            //{
-            //    Console.WriteLine();
-            //    Console.Write(var);//debug
-            //    Console.Write("  The Variable has been found!");
-            //    return true;
-            //}
-
-            //if (expectedVar < var)//will send the search further through the tree, unless there is nothing there in which case it will return false
-            //{
-            //    Console.WriteLine(var);//debug
-
-            //    if (lesserChild != null)
-            //    {
-            //        return lesserChild.SearchBST(expectedVar);
-            //    }
-            //    else
-            //    {
-            //        return false;
-            //    }
-            //}
-            //else if (expectedVar > var)
-            //{
-            //    Console.WriteLine(var);//debug
-
-            //    if (greaterChild != null)
-            //    {
-            //        return greaterChild.SearchBST(expectedVar);
-            //    }
-            //    else
-            //    {
-            //        return false;
-            //    }
-
-            //}
-
-            //Console.WriteLine(expectedVar + " was not found.");
-            //return false;
         }
 
         /// <summary>

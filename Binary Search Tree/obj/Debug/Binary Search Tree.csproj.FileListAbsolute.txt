@@ -12,3 +12,10 @@ C:\Users\jyaku\OneDrive\Documents\Repositories\BST\Binary-Search-Tree\Binary Sea
 C:\Users\jyaku\OneDrive\Documents\Repositories\BST\Binary-Search-Tree\Binary Search Tree\obj\Debug\Binary Search Tree.csproj.CoreCompileInputs.cache
 C:\Users\jyaku\OneDrive\Documents\Repositories\BST\Binary-Search-Tree\Binary Search Tree\obj\Debug\Binary Search Tree.exe
 C:\Users\jyaku\OneDrive\Documents\Repositories\BST\Binary-Search-Tree\Binary Search Tree\obj\Debug\Binary Search Tree.pdb
+C:\Users\jyaku\OneDrive\Documents\Repositories\BST\Binary Search Tree\bin\Debug\Binary Search Tree.exe.config
+C:\Users\jyaku\OneDrive\Documents\Repositories\BST\Binary Search Tree\bin\Debug\Binary Search Tree.exe
+C:\Users\jyaku\OneDrive\Documents\Repositories\BST\Binary Search Tree\bin\Debug\Binary Search Tree.pdb
+C:\Users\jyaku\OneDrive\Documents\Repositories\BST\Binary Search Tree\obj\Debug\Binary Search Tree.csprojAssemblyReference.cache
+C:\Users\jyaku\OneDrive\Documents\Repositories\BST\Binary Search Tree\obj\Debug\Binary Search Tree.csproj.CoreCompileInputs.cache
+C:\Users\jyaku\OneDrive\Documents\Repositories\BST\Binary Search Tree\obj\Debug\Binary Search Tree.exe
+C:\Users\jyaku\OneDrive\Documents\Repositories\BST\Binary Search Tree\obj\Debug\Binary Search Tree.pdb
