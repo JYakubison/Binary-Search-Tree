@@ -20,14 +20,14 @@ namespace Binary_Search_Tree
         private Node greaterChild = null;
 
         /// <summary>
-        /// space to store node to replace other node
+        /// Stores node being removed
         /// </summary>
-        private Node nodeReplaceStorage = null;
+        private Node removedNodeStorage = null;
 
         /// <summary>
-        /// storage for greater node of replacement node
+        /// node replacement storage
         /// </summary>
-        private Node greaterNodeStroage = null;
+        private Node nodeReplacementStorage = null;
 
         //PROPETIES*********************************************************************
 
@@ -104,9 +104,9 @@ namespace Binary_Search_Tree
         /// <param name="expectedVar">< /param>
         public void RemoveNode(int expectedVar)
         {
-            nodeReplaceStorage = SearchForNode(expectedVar);
-
-            if (nodeReplaceStorage == null)//checks if expected var exists in the BST
+            removedNodeStorage = SearchForNode(expectedVar);
+            
+            if (removedNodeStorage == null)//checks if expected var exists in the BST
             {
                 Console.WriteLine("This node does not exist");
                 return;
@@ -117,6 +117,21 @@ namespace Binary_Search_Tree
 
         }
 
+
+        /// <summary>
+        /// This method finds and returns the last lesser node connected to the parent, will return null if parents lesser node is empty
+        /// </summary>
+        /// <param name="parent"></param>
+        /// <returns></returns>
+        public Node FindNodeToMove(Node parent)
+        {
+            
+
+
+            return null;
+        }
+
+        
 
         /// <summary>
         /// Will Look through BST till variable is found if it is
@@ -136,45 +151,6 @@ namespace Binary_Search_Tree
                 return true;
             }
 
-
-            //if (var == expectedVar)//Checks if the variable has been found
-            //{
-            //    Console.WriteLine();
-            //    Console.Write(var);//debug
-            //    Console.Write("  The Variable has been found!");
-            //    return true;
-            //}
-
-            //if (expectedVar < var)//will send the search further through the tree, unless there is nothing there in which case it will return false
-            //{
-            //    Console.WriteLine(var);//debug
-
-            //    if (lesserChild != null)
-            //    {
-            //        return lesserChild.SearchBST(expectedVar);
-            //    }
-            //    else
-            //    {
-            //        return false;
-            //    }
-            //}
-            //else if (expectedVar > var)
-            //{
-            //    Console.WriteLine(var);//debug
-
-            //    if (greaterChild != null)
-            //    {
-            //        return greaterChild.SearchBST(expectedVar);
-            //    }
-            //    else
-            //    {
-            //        return false;
-            //    }
-
-            //}
-
-            //Console.WriteLine(expectedVar + " was not found.");
-            //return false;
         }
 
         /// <summary>
